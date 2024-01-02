@@ -1,0 +1,13 @@
+Package: RecMed
+Type: Package
+Title: Mediation Analysis With Recuurent event outcome
+Version: 0.1.0
+Author: Yan-Lin Chen
+Maintainer: Yan-Lin Chen <yan9914@nycu.edu.tw>
+Description: Mediation Analysis With Recuurent event outcome
+License: GPL (>= 2)
+Encoding: UTF-8
+LazyData: true
+Imports: magrittr, data.table, survival
+Depends: R (>= 2.10)
+RoxygenNote: 7.2.3
