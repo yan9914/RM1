@@ -9,7 +9,7 @@
 #' @param posttreat_confounder character vector specifying the column names of post-treatment confounders.
 #' @param mediator_dist character. If \code{normal}, linear regression is used to predict mediator. If \code{bernoulli}, logistic regression is used to predict mediator.
 #' @param B_number integer; the times of bootstrapping.
-#' @param B_points a numeric vector; the time points that used to compute pointwise 95% confidence intervals by bootstrapping.
+#' @param B_points a numeric vector; the time points that used to compute pointwise 95 percentage confidence intervals by bootstrapping.
 #' @param B_seed integer. \code{set.seed(B_seed)}
 #' @param g_computation a optional logical value. The default is \code{FALSE}. If \code{TRUE}, only the model of exposure and mediator will be used, but then there is no triple robustness.
 #' @param estimation logical.

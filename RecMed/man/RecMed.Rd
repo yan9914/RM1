@@ -33,7 +33,7 @@ RecMed(
 
 \item{B_number}{integer; the times of bootstrapping.}
 
-\item{B_points}{a numeric vector; the time points that used to compute pointwise 95% confidence intervals by bootstrapping.}
+\item{B_points}{a numeric vector; the time points that used to compute pointwise 95 percentage confidence intervals by bootstrapping.}
 
 \item{B_seed}{integer. \code{set.seed(B_seed)}}
 
