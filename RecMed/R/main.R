@@ -2,28 +2,24 @@
 #'
 #' Perform causal mediation analysis with recurrent event outcomes, using either binary or continuous mediator. The distribution of the mediator is estimated through logistic or linear regression models. The distribution of the exposure and outcome are estimated by logistic regression and proportional mean model, respectively. This estimation method requires only two of the three models - exposure, mediator, and outcome - to be correctly specified in order to obtain an unbiased estimate.
 #'
-#' @param data a data.frame, containing the variables in the model. Specifically, column names \code{id}, \code{t.start}, \code{t.stop}, and \code{event} are required.
+#' @param data a data.frame, containing the variables in the model. Specifically, column names "id", "t.start", "t.stop", and "event" are required.
 #' @param exposure a character value specifying the column name of exposure.
 #' @param mediator a character value specifying the column name of mediator.
 #' @param pretreat_confounder character vector specifying the column names of pre-treatment confounders.
 #' @param posttreat_confounder character vector specifying the column names of post-treatment confounders.
-#' @param mediator_dist character. If \code{normal}, linear regression is used to predict mediator. If \code{bernoulli}, logistic regression is used to predict mediator.
+#' @param mediator_dist character. If "normal", linear regression is used to predict mediator. If "bernoulli", logistic regression is used to predict mediator.
 #' @param B_number integer; the times of bootstrapping.
 #' @param B_points a numeric vector; the time points that used to compute pointwise 95 percentage confidence intervals by bootstrapping.
-#' @param B_seed integer. \code{set.seed(B_seed)}
-#' @param g_computation a optional logical value. The default is \code{FALSE}. If \code{TRUE}, only the model of exposure and mediator will be used, but then there is no triple robustness.
+#' @param B_seed integer. Setting seed.
+#' @param g_computation a optional logical value. The default is FALSE. If TRUE, only the model of exposure and mediator will be used, but then there is no triple robustness.
 #' @param estimation logical.
-#'
-#'
 #' @export
 #' @seealso ...
-#'
 #' @examples
 #' \dontrun{
 #' RecMed(data = sim_data1, exposure = "A", mediator = "M", pretreat_confounder = c("C1", "C2"),
 #'  B_number = 1000 , B_points = 24 * c(0.2,0.4,0.5,0.6,0.8))
 #' }
-#'
 
 RecMed <- function(data, exposure, mediator, pretreat_confounder = NULL, posttreat_confounder = NULL, mediator_dist = "normal", B_number, B_points, B_seed = 123, g_computation = FALSE, estimation = TRUE) {
   expit <- function(x) exp(x)/(1+exp(x))

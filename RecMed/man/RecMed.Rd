@@ -19,7 +19,7 @@ RecMed(
 )
 }
 \arguments{
-\item{data}{a data.frame, containing the variables in the model. Specifically, column names \code{id}, \code{t.start}, \code{t.stop}, and \code{event} are required.}
+\item{data}{a data.frame, containing the variables in the model. Specifically, column names "id", "t.start", "t.stop", and "event" are required.}
 
 \item{exposure}{a character value specifying the column name of exposure.}
 
@@ -29,15 +29,15 @@ RecMed(
 
 \item{posttreat_confounder}{character vector specifying the column names of post-treatment confounders.}
 
-\item{mediator_dist}{character. If \code{normal}, linear regression is used to predict mediator. If \code{bernoulli}, logistic regression is used to predict mediator.}
+\item{mediator_dist}{character. If "normal", linear regression is used to predict mediator. If "bernoulli", logistic regression is used to predict mediator.}
 
 \item{B_number}{integer; the times of bootstrapping.}
 
 \item{B_points}{a numeric vector; the time points that used to compute pointwise 95 percentage confidence intervals by bootstrapping.}
 
-\item{B_seed}{integer. \code{set.seed(B_seed)}}
+\item{B_seed}{integer. Setting seed.}
 
-\item{g_computation}{a optional logical value. The default is \code{FALSE}. If \code{TRUE}, only the model of exposure and mediator will be used, but then there is no triple robustness.}
+\item{g_computation}{a optional logical value. The default is FALSE. If TRUE, only the model of exposure and mediator will be used, but then there is no triple robustness.}
 
 \item{estimation}{logical.}
 }
@@ -49,7 +49,6 @@ Perform causal mediation analysis with recurrent event outcomes, using either bi
 RecMed(data = sim_data1, exposure = "A", mediator = "M", pretreat_confounder = c("C1", "C2"),
  B_number = 1000 , B_points = 24 * c(0.2,0.4,0.5,0.6,0.8))
 }
-
 }
 \seealso{
 ...
