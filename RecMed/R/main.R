@@ -1,17 +1,17 @@
-#' Mediation Analysis With Recuurent event outcome
+#' Mediation Analysis With Recurrent event outcome
 #'
 #' Perform causal mediation analysis with recurrent event outcomes, using either binary or continuous mediator. The distribution of the mediator is estimated through logistic or linear regression models. The distribution of the exposure and outcome are estimated by logistic regression and proportional mean model, respectively. This estimation method requires only two of the three models - exposure, mediator, and outcome - to be correctly specified in order to obtain an unbiased estimate.
 #'
-#' @param data data.frame.
-#' @param exposure character.
-#' @param mediator character.
-#' @param pretreat_confounder character vector.
-#' @param posttreat_confounder character vector.
-#' @param mediator_dist character.
-#' @param B_number integer.
-#' @param B_points numeric vector.
-#' @param B_seed integer.
-#' @param g_computation logical.
+#' @param data a data.frame, containing the variables in the model. Specifically, column names \code{id}, \code{t.start}, \code{t.stop}, and \code{event} are required.
+#' @param exposure a character value specifying the column name of exposure.
+#' @param mediator a character value specifying the column name of mediator.
+#' @param pretreat_confounder character vector specifying the column names of pre-treatment confounders.
+#' @param posttreat_confounder character vector specifying the column names of post-treatment confounders.
+#' @param mediator_dist character. If \code{normal}, linear regression is used to predict mediator. If \code{bernoulli}, logistic regression is used to predict mediator.
+#' @param B_number integer; the times of bootstrapping.
+#' @param B_points a numeric vector; the time points that used to compute pointwise 95% confidence intervals by bootstrapping.
+#' @param B_seed integer. \code{set.seed(B_seed)}
+#' @param g_computation a optional logical value. The default is \code{FALSE}. If \code{TRUE}, only the model of exposure and mediator will be used, but then there is no triple robustness.
 #' @param estimation logical.
 #'
 #'
@@ -19,6 +19,7 @@
 #' @seealso ...
 #'
 #' @examples
+#' \run{head(sim_data1)}
 #' \dontrun{
 #' RecMed(data = sim_data1, exposure = "A", mediator = "M", pretreat_confounder = c("C1", "C2"),
 #'  B_number = 1000 , B_points = 24 * c(0.2,0.4,0.5,0.6,0.8))

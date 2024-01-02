@@ -2,7 +2,7 @@
 % Please edit documentation in R/main.R
 \name{RecMed}
 \alias{RecMed}
-\title{Mediation Analysis With Recuurent event outcome}
+\title{Mediation Analysis With Recurrent event outcome}
 \usage{
 RecMed(
   data,
@@ -19,25 +19,25 @@ RecMed(
 )
 }
 \arguments{
-\item{data}{data.frame.}
+\item{data}{a data.frame, containing the variables in the model. Specifically, column names \code{id}, \code{t.start}, \code{t.stop}, and \code{event} are required.}
 
-\item{exposure}{character.}
+\item{exposure}{a character value specifying the column name of exposure.}
 
-\item{mediator}{character.}
+\item{mediator}{a character value specifying the column name of mediator.}
 
-\item{pretreat_confounder}{character vector.}
+\item{pretreat_confounder}{character vector specifying the column names of pre-treatment confounders.}
 
-\item{posttreat_confounder}{character vector.}
+\item{posttreat_confounder}{character vector specifying the column names of post-treatment confounders.}
 
-\item{mediator_dist}{character.}
+\item{mediator_dist}{character. If \code{normal}, linear regression is used to predict mediator. If \code{bernoulli}, logistic regression is used to predict mediator.}
 
-\item{B_number}{integer.}
+\item{B_number}{integer; the times of bootstrapping.}
 
-\item{B_points}{numeric vector.}
+\item{B_points}{a numeric vector; the time points that used to compute pointwise 95% confidence intervals by bootstrapping.}
 
-\item{B_seed}{integer.}
+\item{B_seed}{integer. \code{set.seed(B_seed)}}
 
-\item{g_computation}{logical.}
+\item{g_computation}{a optional logical value. The default is \code{FALSE}. If \code{TRUE}, only the model of exposure and mediator will be used, but then there is no triple robustness.}
 
 \item{estimation}{logical.}
 }
@@ -45,6 +45,7 @@ RecMed(
 Perform causal mediation analysis with recurrent event outcomes, using either binary or continuous mediator. The distribution of the mediator is estimated through logistic or linear regression models. The distribution of the exposure and outcome are estimated by logistic regression and proportional mean model, respectively. This estimation method requires only two of the three models - exposure, mediator, and outcome - to be correctly specified in order to obtain an unbiased estimate.
 }
 \examples{
+\run{head(sim_data1)}
 \dontrun{
 RecMed(data = sim_data1, exposure = "A", mediator = "M", pretreat_confounder = c("C1", "C2"),
  B_number = 1000 , B_points = 24 * c(0.2,0.4,0.5,0.6,0.8))
