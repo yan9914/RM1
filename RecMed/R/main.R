@@ -19,7 +19,6 @@
 #' @seealso ...
 #'
 #' @examples
-#' \run{head(sim_data1)}
 #' \dontrun{
 #' RecMed(data = sim_data1, exposure = "A", mediator = "M", pretreat_confounder = c("C1", "C2"),
 #'  B_number = 1000 , B_points = 24 * c(0.2,0.4,0.5,0.6,0.8))
